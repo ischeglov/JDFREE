@@ -15,8 +15,8 @@ import java.util.List;
 
 public class MyTelegramBot extends TelegramLongPollingBot {
     private static final String BOT_TOKEN = "ВАШ_ТОКЕН";
-    private static final String BOT_USERNAME = "ВАШЕ_ИМЯ_БОТА";
-    private static final String URL = "https://api.nasa.gov/planetary/apod?api_key=ВАШ_КЛЮЧ_NASA";
+    private static final String BOT_USERNAME = "NASA_DOWNLOADER_BOT";
+    private static final String URL = "https://api.nasa.gov/planetary/apod?api_key=ВАШ_КЛЮЧ";
     private static long chatId;
 
     private static final String HELP_TEXT = "Демонстрация моего бота:\n\n" +
@@ -111,20 +111,18 @@ public class MyTelegramBot extends TelegramLongPollingBot {
         List<KeyboardRow> keyboard = new ArrayList<>();
         KeyboardRow keyboardFirstRow = new KeyboardRow();
         keyboardFirstRow.add("Старт");
-
-        KeyboardRow keyboardSecondRow = new KeyboardRow();
-        keyboardSecondRow.add("Помощь");
-
-        KeyboardRow keyboardThirdRow = new KeyboardRow();
-        keyboardThirdRow.add("Загрузить изображение");
-
-        KeyboardRow keyboardFourthRow = new KeyboardRow();
-        keyboardFourthRow.add("Введите дату");
+        keyboardFirstRow.add("Помощь");
 
         keyboard.add(keyboardFirstRow);
+
+        KeyboardRow keyboardSecondRow = new KeyboardRow();
+        keyboardSecondRow.add("Загрузить изображение");
+
+        KeyboardRow keyboardThirdRow = new KeyboardRow();
+        keyboardThirdRow.add("Введите дату");
+
         keyboard.add(keyboardSecondRow);
         keyboard.add(keyboardThirdRow);
-        keyboard.add(keyboardFourthRow);
 
         replyKeyboardMarkup.setKeyboard(keyboard);
 
